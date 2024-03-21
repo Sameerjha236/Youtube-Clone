@@ -14,7 +14,12 @@ const Feed = () => {
   }, [selectedCategory]);
 
   return (
-    <Stack sx={{ flexDirection: { sx: "column", md: "row" } }}>
+    <Stack
+      sx={{
+        flexDirection: { sx: "column", md: "row" },
+        justifyContent: { xs: "center", md: "space-around" },
+      }}
+    >
       <Box
         sx={{
           height: { sx: "auto", md: "92vh" },
