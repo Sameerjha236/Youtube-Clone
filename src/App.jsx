@@ -7,8 +7,9 @@ import {
   ChannelDetail,
   VideoDetail,
   Feed,
-  SearchBar,
+  PlaylistDetail,
 } from "./components";
+
 const App = () => (
   <BrowserRouter>
     <Box sx={{ backgroundColor: "#000" }}>
@@ -17,7 +18,8 @@ const App = () => (
         <Route path="/" exact element={<Feed />} />
         <Route path="/video/:id" element={<VideoDetail />} />
         <Route path="/channel/:id" element={<ChannelDetail />} />
-        <Route path="/search/:id" element={<SearchFeed />} />
+        <Route path="/search/:searchTerm" element={<SearchFeed />} />
+        <Route path="/playlist/:id" element={<PlaylistDetail />} />
       </Routes>
     </Box>
   </BrowserRouter>

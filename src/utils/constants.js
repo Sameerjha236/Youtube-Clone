@@ -11,10 +11,12 @@ import GraphicEqIcon from "@mui/icons-material/GraphicEq";
 import TheaterComedyIcon from "@mui/icons-material/TheaterComedy";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 import DeveloperModeIcon from "@mui/icons-material/DeveloperMode";
+import WhatshotIcon from "@mui/icons-material/Whatshot";
 export const logo = "https://i.ibb.co/s9Qys2j/logo.png";
 
 export const categories = [
   { name: "Home", icon: <HomeIcon /> },
+  { name: "Trending", icon: <WhatshotIcon /> },
   { name: "JS Mastery", icon: <CodeIcon /> },
   { name: "Coding", icon: <CodeIcon /> },
   { name: "Live", icon: <LiveTvIcon /> },

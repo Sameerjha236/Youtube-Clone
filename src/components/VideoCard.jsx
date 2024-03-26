@@ -4,7 +4,6 @@ import { Typography, Card, CardContent, CardMedia } from "@mui/material";
 import { CheckCircle } from "@mui/icons-material";
 import LiveTvIcon from "@mui/icons-material/LiveTv";
 import {
-  // demoThumbnailUrl,
   demoChannelTitle,
   demoChannelUrl,
   demoVideoUrl,
@@ -20,7 +19,7 @@ const VideoCard = ({
   return (
     <Card
       sx={{
-        width: { md: "280px", xs: "100%" },
+        width: { md: "300px", xs: "100%" },
         borderRadius: 0,
         boxShadow: "none",
       }}
