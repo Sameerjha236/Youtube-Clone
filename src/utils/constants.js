@@ -43,3 +43,5 @@ export const demoVideoTitle =
   "Build and Deploy 5 JavaScript & React API Projects in 10 Hours - Full Course | RapidAPI";
 export const demoProfilePicture =
   "http://dergipark.org.tr/assets/app/images/buddy_sample.png";
+export const demoPlaylist =
+  "https://www.youtube.com/playlist?list=PLzT1yw_wugHB8lcho3VBnkkMwl36KwThb";

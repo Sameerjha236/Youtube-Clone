@@ -7,6 +7,7 @@ export { default as SearchBar } from "./SearchBar";
 export { default as Sidebar } from "./Sidebar";
 export { default as Videos } from "./Videos";
 export { default as VideoCard } from "./VideoCard";
+export { default as VideoCard2 } from "./VideoCard2";
 export { default as ChannelCard } from "./ChannelCard";
 export { default as PlayListCard } from "./PlayListCard";
 export { default as PlaylistDetail } from "./PlaylistDetail";
