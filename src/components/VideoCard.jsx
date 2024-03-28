@@ -8,6 +8,7 @@ import {
   demoChannelUrl,
   demoVideoUrl,
   demoVideoTitle,
+  demoThumbnailUrl,
 } from "../utils/constants";
 
 const VideoCard = ({
@@ -19,16 +20,16 @@ const VideoCard = ({
   return (
     <Card
       sx={{
-        width: { md: "300px", xs: "100%" },
-        borderRadius: 0,
+        width: { xs: "100%", md: "18rem" },
+        borderRadius: "5%",
         boxShadow: "none",
       }}
     >
       <Link to={videoId ? `/video/${videoId}` : { demoVideoUrl }}>
         <CardMedia
-          image={snippet?.thumbnails?.high?.url}
+          image={snippet?.thumbnails?.high?.url || demoThumbnailUrl}
           alt={snippet?.title}
-          sx={{ width: 358, height: 180 }}
+          sx={{ width: "20rem", height: "10rem" }}
         />
       </Link>
       <CardContent sx={{ backgroundColor: "#1e1e1e", height: 90 }}>

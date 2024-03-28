@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { Box, Stack, Typography, CardContent, CardMedia } from "@mui/material";
 import { VideoCard2, Videos } from "./";
 import { fetchFromAPI } from "../utils/FetchAPI";
-import { demoPlaylist, demoProfilePicture } from "../utils/constants";
+import { demoProfilePicture } from "../utils/constants";
 import { CheckCircle } from "@mui/icons-material";
 
 const PlaylistDetail = () => {
@@ -18,7 +18,6 @@ const PlaylistDetail = () => {
       setVideos(data.items)
     );
   }, [id]);
-  console.log(videos);
   return (
     <Stack
       sx={{
@@ -51,10 +50,10 @@ const PlaylistDetail = () => {
                 }
                 alt={playList?.snippet?.title}
                 sx={{
-                  height: "170px",
-                  width: "300px",
+                  height: "10rem",
+                  width: "17rem",
                   mb: 2,
-                  borderRadius: "5%",
+                  borderRadius: "10%",
                   border: "1px solid #e3e3e3",
                 }}
               />
@@ -91,9 +90,9 @@ const PlaylistDetail = () => {
           p={2}
           sx={{
             overflowY: "auto",
-            height: "90vh",
+            minHeight: "90vh",
             width: { md: "100%" },
-            ml: "2rem",
+            ml: { md: "0.5rem" },
           }}
         >
           {videos.map((curr, idx) => (

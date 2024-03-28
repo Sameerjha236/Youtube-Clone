@@ -6,6 +6,7 @@ import { CheckCircle } from "@mui/icons-material";
 import { demoProfilePicture } from "../utils/constants";
 
 const ChannelCard = ({ channel, marginTop }) => {
+  console.log(channel);
   return (
     <Box
       sx={{
@@ -19,7 +20,7 @@ const ChannelCard = ({ channel, marginTop }) => {
         marginTop,
       }}
     >
-      <Link to={`/channel/${channel?.id?.channelId}`}>
+      <Link to={`/channel/${channel?.id?.channelId || channel?.id}`}>
         <CardContent
           sx={{
             display: "flex",
