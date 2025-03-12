@@ -1,17 +1,30 @@
 import React, { useState, useEffect } from "react";
 import { Box, Stack, Typography } from "@mui/material";
-import { fetchFromAPI } from "../utils/FetchAPI";
+import { fetchSearchResults } from "../utils/FetchAPI";
 import { Sidebar, Videos } from "../components";
 
 const Feed = () => {
   const [selectedCategory, setSelectedCategory] = useState("New");
   const [videos, setVideos] = useState([]);
+  const [nextPageToken, setNextPageToken] = useState("");
 
   useEffect(() => {
-    fetchFromAPI(`search?part=snippet&q=${selectedCategory}`).then((data) =>
-      setVideos(data.items)
+    fetchSearchResults(`search?part=snippet&q=${selectedCategory}`).then(
+      (data) => {
+        setVideos(data.items);
+        setNextPageToken(data.nextPageToken);
+      }
     );
   }, [selectedCategory]);
+
+  const fetchMore = () => {
+    fetchSearchResults(
+      `search?part=snippet&q=${selectedCategory}&pageToken=${nextPageToken}`
+    ).then((data) => {
+      setVideos([...videos, ...data.items]);
+      setNextPageToken(data.nextPageToken);
+    });
+  };
 
   return (
     <Stack
@@ -55,7 +68,7 @@ const Feed = () => {
           {selectedCategory}
           <span style={{ marginLeft: "0.5rem", color: "#F31503" }}>Videos</span>
         </Typography>
-        <Videos videos={videos} />
+        <Videos videos={videos} fetchMore={fetchMore} />
       </Box>
     </Stack>
   );

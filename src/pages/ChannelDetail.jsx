@@ -7,6 +7,7 @@ import { ChannelCard, Videos } from "../components";
 const ChannelDetail = () => {
   const [channel, setChannel] = useState(null);
   const [videos, setVideos] = useState([]);
+  const [nextPageToken, setNextPageToken] = useState("");
   const { id } = useParams();
 
   useEffect(() => {
@@ -16,9 +17,19 @@ const ChannelDetail = () => {
     fetchFromAPI(`search?channelId=${id}&part=snippet&order=date`).then(
       (data) => {
         setVideos(data?.items);
+        setNextPageToken(data.nextPageToken);
       }
     );
   }, [id]);
+
+  const fetchMore = () => {
+    fetchFromAPI(
+      `search?channelId=${id}&part=snippet&order=date&pageToken=${nextPageToken}`
+    ).then((data) => {
+      setVideos([...videos, ...data.items]);
+      setNextPageToken(data.nextPageToken);
+    });
+  };
 
   return (
     <Box minHeight="95vh" width="100%">
@@ -34,7 +45,7 @@ const ChannelDetail = () => {
         <ChannelCard channel={channel} marginTop="-7rem" />
       </Box>
       <Box display="flex" p="2">
-        <Videos videos={videos} />
+        <Videos videos={videos} fetchMore={fetchMore} />
       </Box>
     </Box>
   );
