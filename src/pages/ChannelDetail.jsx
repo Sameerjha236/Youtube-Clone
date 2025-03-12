@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Box } from "@mui/material";
-import { Videos, ChannelCard } from "./";
 import { fetchFromAPI } from "../utils/FetchAPI";
+import { ChannelCard, Videos } from "../components";
 
 const ChannelDetail = () => {
   const [channel, setChannel] = useState(null);

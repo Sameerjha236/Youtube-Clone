@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Box, Stack, Typography, CardContent, CardMedia } from "@mui/material";
-import { VideoCard2 } from "./";
 import { fetchFromAPI } from "../utils/FetchAPI";
 import { demoProfilePicture } from "../utils/constants";
 import { CheckCircle } from "@mui/icons-material";
+import { VideoCard2 } from "../components";
 
 const PlaylistDetail = () => {
   const [videos, setVideos] = useState([]);
