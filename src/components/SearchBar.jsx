@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Paper, IconButton } from "@mui/material";
 import { Search } from "@mui/icons-material";
@@ -6,6 +6,7 @@ import { Search } from "@mui/icons-material";
 const SearchBar = () => {
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
+  const inputRef = useRef(null);
   const handleSubmit = (e) => {
     e.preventDefault();
     if (search) {
@@ -13,6 +14,21 @@ const SearchBar = () => {
       setSearch("");
     }
   };
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === "k") {
+        e.preventDefault();
+        inputRef.current.focus();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  });
 
   return (
     <Paper
@@ -28,7 +44,8 @@ const SearchBar = () => {
     >
       <input
         className="search-bar"
-        placeholder="Seach..."
+        placeholder={search ? "" : "Search... (Press Ctrl + K)"}
+        ref={inputRef}
         value={search}
         onChange={(e) => {
           setSearch(e.target.value);

@@ -6,7 +6,6 @@ import { CheckCircle } from "@mui/icons-material";
 import { demoProfilePicture } from "../utils/constants";
 
 const ChannelCard = ({ channel, marginTop }) => {
-  console.log(channel);
   return (
     <Box
       sx={{
